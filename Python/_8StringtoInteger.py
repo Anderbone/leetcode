@@ -4,6 +4,8 @@ class Solution:
         MIN_VALUE, MAX_VALUE = - 2 ** 31, 2 ** 31 - 1
         pattern = compile(r'^ *([\+-]?\d+){1}')
         matched = pattern.match(s)
+        print(matched)
+        print(matched.group())
         if matched:
             return min(MAX_VALUE, max(MIN_VALUE, int(matched.group())))
         else:
