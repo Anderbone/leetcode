@@ -10,12 +10,13 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
+        need_values = {}
         for i, v in enumerate(nums):
-            remaining = target - v
-            if remaining in seen:
-                return [seen[remaining], i]
-            seen[v] = i
-        return []
+            need_value = target - v
+            if need_value in need_values:
+                return [need_values[need_value], i]
+            else:
+                need_values[v] = i
+
 # @lc code=end
 
