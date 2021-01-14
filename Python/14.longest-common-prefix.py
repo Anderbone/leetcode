@@ -10,15 +10,14 @@ from typing import List
 
 class Solution:
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        if strs == []:
-            return ""
-        common = strs[0]
-        index = len(common)
-        for i in strs[1:]:
-            index = min(index, len(i))
-            while (common[:index] != i[:index]):
-                index -= 1
-        return "" if index == -1 else common[:index]
+        l = list(zip(*strs))
+        prefix = ""
+        for i in l:
+            if len(set(i))==1:
+                prefix += i[0]
+            else:
+                break
+        return prefix
         # print('hello')
         
 # @lc code=end
