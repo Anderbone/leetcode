@@ -13,6 +13,23 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: TreeNode) -> bool:
+        # inorder traversal, then compare with sorted
+        num = []
+        def inorder(root):
+            if root is None:
+                return
+            inorder(root.left)
+            num.append(root.val)
+            inorder(root.right)
+        inorder(root)
+        if len(set(num)) != len(num):
+            return False
+        if sorted(num) == num:
+            return True
+        return False
+
+            
+
         
 # @lc code=end
 
